@@ -68,6 +68,8 @@ dependencies {
     implementation(platform("com.google.firebase:firebase-bom:33.13.0"))
     // Firebase AUTH
     implementation("com.google.firebase:firebase-auth")
+    // Firebase FireStore
+    implementation("com.google.firebase:firebase-firestore")
 
     // Navigation
     implementation ("androidx.navigation:navigation-compose:2.7.7")
