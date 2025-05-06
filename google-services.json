@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "704562100900",
+    "project_id": "herometrics-8bb63",
+    "storage_bucket": "herometrics-8bb63.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:704562100900:android:517aa3fc65f9005f454431",
+        "android_client_info": {
+          "package_name": "com.example.herometrics"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhWBfWyGdiQmW5x5T2HXKTjwppBYILt1M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

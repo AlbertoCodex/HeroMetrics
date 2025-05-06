@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -62,6 +63,12 @@ dependencies {
     implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
     implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
     implementation ("com.squareup.okhttp3:okhttp:4.10.0")
+
+    // Import the Firebase BoM
+    implementation(platform("com.google.firebase:firebase-bom:33.13.0"))
+    // Firebase AUTH
+    implementation("com.google.firebase:firebase-auth")
+
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
