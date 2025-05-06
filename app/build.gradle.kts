@@ -69,6 +69,8 @@ dependencies {
     // Firebase AUTH
     implementation("com.google.firebase:firebase-auth")
 
+    // Navigation
+    implementation ("androidx.navigation:navigation-compose:2.7.7")
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
