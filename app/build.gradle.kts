@@ -74,6 +74,13 @@ dependencies {
     // Navigation
     implementation ("androidx.navigation:navigation-compose:2.7.7")
 
+    // Graficos
+    implementation(libs.vico.compose)
+    implementation(libs.vico.compose.m2)
+    implementation(libs.vico.compose.m3)
+    implementation(libs.vico.multiplatform)
+    implementation(libs.vico.views)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
