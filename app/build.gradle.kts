@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     id("com.google.gms.google-services")
+    id("kotlin-kapt")
 }
 
 android {
@@ -51,6 +52,7 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
 
+
     // Compose MVVM
     implementation ("androidx.compose.ui:ui:1.5.0")
     implementation ("androidx.compose.material:material:1.5.0")
@@ -80,6 +82,15 @@ dependencies {
     implementation(libs.vico.compose.m3)
     implementation(libs.vico.multiplatform)
     implementation(libs.vico.views)
+
+    // Moshi (JSON parsing)
+    implementation(libs.moshi)
+    implementation(libs.moshi.kotlin)
+    implementation(libs.retrofit.moshi.converter)
+    kapt(libs.moshi.kotlin.codegen)  // Procesador de anotaciones para Moshi
+
+    // GSON
+    implementation ("com.google.code.gson:gson:2.10.1")
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
