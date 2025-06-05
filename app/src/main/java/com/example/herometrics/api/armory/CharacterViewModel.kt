@@ -1,4 +1,4 @@
-package com.example.herometrics.test
+package com.example.herometrics.api.armory
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -23,7 +23,7 @@ class CharacterViewModel : ViewModel() {
     private val clientSecret = "8uufmeKFCpvYiXDlgDIdp9GOCgCWDKjL"
 
     init {
-        fetchCharacterStats("stormscale", "zenys")
+        fetchCharacterStats("sanguino", "zenys")
     }
 
     fun fetchCharacterStats(realm: String, name: String) {

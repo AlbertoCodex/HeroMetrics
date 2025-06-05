@@ -1,4 +1,4 @@
-package com.example.herometrics.wclogs.query
+package com.example.herometrics.api.wclogs.query
 
 import com.squareup.moshi.JsonClass
 

@@ -1,6 +1,6 @@
-package com.example.herometrics.wclogs
+package com.example.herometrics.api.wclogs
 
-import com.example.herometrics.wclogs.query.GraphQLService
+import com.example.herometrics.api.wclogs.query.GraphQLService
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import retrofit2.converter.moshi.MoshiConverterFactory

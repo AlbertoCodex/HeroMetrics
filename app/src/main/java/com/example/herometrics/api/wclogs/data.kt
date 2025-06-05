@@ -1,4 +1,4 @@
-package com.example.herometrics.wclogs
+package com.example.herometrics.api.wclogs
 
 import com.google.gson.JsonObject
 

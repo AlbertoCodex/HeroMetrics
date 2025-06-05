@@ -1,4 +1,4 @@
-package com.example.herometrics.wclogs
+package com.example.herometrics.api.wclogs
 
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded

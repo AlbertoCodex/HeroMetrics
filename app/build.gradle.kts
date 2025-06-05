@@ -87,6 +87,7 @@ dependencies {
     implementation(libs.moshi)
     implementation(libs.moshi.kotlin)
     implementation(libs.retrofit.moshi.converter)
+    implementation(libs.androidx.runtime.livedata)
     kapt(libs.moshi.kotlin.codegen)  // Procesador de anotaciones para Moshi
 
     // GSON

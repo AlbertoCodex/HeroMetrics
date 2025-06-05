@@ -1,4 +1,4 @@
-package com.example.herometrics.test
+package com.example.herometrics.api.armory
 
 data class CharacterStatsResponse(
     val health: Int,

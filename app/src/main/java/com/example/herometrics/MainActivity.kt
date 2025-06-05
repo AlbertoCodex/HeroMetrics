@@ -4,25 +4,27 @@ import android.os.Bundle
 import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import com.example.herometrics.test.CharacterScreen
-import com.example.herometrics.test.JetpackComposeBasicColumnChart
+import com.example.herometrics.data.DataFirebase
+import com.example.herometrics.navigation.AppNavigation
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import com.example.herometrics.ui.theme.HeroMetricsTheme
-import com.example.herometrics.wclogs.RankingResponseWrapper
-import com.example.herometrics.wclogs.RetrofitClient
-import com.example.herometrics.wclogs.SingleRanking
-import com.example.herometrics.wclogs.query.*
+import com.example.herometrics.api.wclogs.RetrofitClient
+import com.example.herometrics.api.wclogs.query.GraphQLRequest
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.json.JSONObject
-import org.json.JSONArray
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+        // Instancia de Firebase
+        val firebase = DataFirebase(Firebase.auth, Firebase.firestore)
         super.onCreate(savedInstanceState)
         setContent {
             HeroMetricsTheme {
-                CharacterScreen()
+                AppNavigation(firebase.auth, firebase.db)
                 fetchTopSpecFromBoss("9ef8b85e-cf47-4ecb-8ed5-321a33bb0a08", "6DMDP3RjlSGjvQcCNmdLRIO5D9igxCuFpGdPB1eO", 3009, "Frost")
             }
         }

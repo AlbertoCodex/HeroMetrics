@@ -1,4 +1,4 @@
-package com.example.herometrics.test
+package com.example.herometrics.api.armory
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding

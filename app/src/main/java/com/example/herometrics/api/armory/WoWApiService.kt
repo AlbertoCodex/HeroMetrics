@@ -1,7 +1,6 @@
-package com.example.herometrics.test
+package com.example.herometrics.api.armory
 
 import retrofit2.http.*
-import com.google.gson.annotations.SerializedName
 
 interface WowApiService {
     @GET("profile/wow/character/{realm}/{characterName}/statistics")

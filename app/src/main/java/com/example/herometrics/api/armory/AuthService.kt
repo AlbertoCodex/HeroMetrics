@@ -1,8 +1,6 @@
-package com.example.herometrics.test
+package com.example.herometrics.api.armory
 
 import retrofit2.http.*
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 import com.google.gson.annotations.SerializedName
 
 interface AuthService {

@@ -1,4 +1,4 @@
-package com.example.herometrics.wclogs.query
+package com.example.herometrics.api.wclogs.query
 
 import okhttp3.ResponseBody
 import retrofit2.Response
