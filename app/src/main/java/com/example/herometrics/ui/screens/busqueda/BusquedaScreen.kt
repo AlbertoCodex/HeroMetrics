@@ -1,4 +1,4 @@
-package com.example.herometrics.screens.busqueda
+package com.example.herometrics.ui.screens.busqueda
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*

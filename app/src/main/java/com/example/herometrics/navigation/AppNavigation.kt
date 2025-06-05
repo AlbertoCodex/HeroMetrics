@@ -6,8 +6,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.herometrics.data.DataFirebase
-import com.example.herometrics.screens.busqueda.BusquedaScreen
-import com.example.herometrics.screens.busqueda.BusquedaViewModel
+import com.example.herometrics.ui.screens.busqueda.BusquedaScreen
+import com.example.herometrics.ui.screens.busqueda.BusquedaViewModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 

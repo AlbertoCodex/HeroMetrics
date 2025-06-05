@@ -1,4 +1,4 @@
-package com.example.herometrics.screens.busqueda
+package com.example.herometrics.ui.screens.busqueda
 
 import android.util.Log
 import androidx.lifecycle.LiveData
