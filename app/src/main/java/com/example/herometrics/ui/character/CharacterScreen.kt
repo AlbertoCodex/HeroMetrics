@@ -1,4 +1,4 @@
-package com.example.herometrics.api.armory
+package com.example.herometrics.ui.character
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
@@ -10,6 +10,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavHostController
+import com.example.herometrics.ui.screens.busqueda.BusquedaViewModel
 import com.patrykandpatrick.vico.compose.cartesian.CartesianChartHost
 import com.patrykandpatrick.vico.compose.cartesian.axis.rememberBottom
 import com.patrykandpatrick.vico.compose.cartesian.axis.rememberStart
@@ -21,7 +23,10 @@ import com.patrykandpatrick.vico.core.cartesian.data.CartesianChartModelProducer
 import com.patrykandpatrick.vico.core.cartesian.data.columnSeries
 
 @Composable
-fun CharacterScreen(viewModel: CharacterViewModel = viewModel()) {
+fun CharacterScreen(
+    navController: NavHostController,
+    viewModel: CharacterViewModel
+) {
     val stats = viewModel.stats
     val isLoading = viewModel.isLoading
     val error = viewModel.errorMessage

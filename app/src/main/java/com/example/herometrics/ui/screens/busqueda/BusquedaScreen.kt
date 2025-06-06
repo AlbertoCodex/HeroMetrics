@@ -14,6 +14,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
+import com.example.herometrics.navigation.AppScreens
 
 @Composable
 fun BusquedaScreen(
@@ -50,7 +51,7 @@ fun BusquedaContent(
         TextField(
             value = busqueda,
             onValueChange = { viewModel.setBusqueda(it) },
-            label = { Text("Nombre - Servidor") },
+            label = { Text("Nombre-Servidor") },
             modifier = Modifier.fillMaxWidth()
         )
 
@@ -64,16 +65,26 @@ fun BusquedaContent(
                 onClick = {
                     // navController.navigate(comparar")
                 },
-                modifier = Modifier.weight(1f)
+                modifier = Modifier.weight(1f),
+                enabled = busqueda.contains("-")
+
             ) {
                 Text("Comparar")
             }
 
             Button(
                 onClick = {
-                    navController.navigate("profile")
+                    val parts = busqueda.split("-")
+                    if (parts.size == 2) {
+                        val nombre = parts[0].trim()
+                        val servidor = parts[1].trim()
+                        navController.navigate(AppScreens.Character.createRoute(nombre, servidor))
+                    } else {
+                        // Aquí podrías mostrar un diálogo de error si el formato está mal
+                    }
                 },
-                modifier = Modifier.weight(1f)
+                modifier = Modifier.weight(1f),
+                enabled = busqueda.contains("-")
             ) {
                 Text("Buscar")
             }
@@ -86,11 +97,11 @@ fun BusquedaContent(
         LazyColumn {
             items(recientes) { busqueda ->
                 Text(
-                    text = busqueda.nombre,
+                    text = "${busqueda.nombre}-${busqueda.servidor}",
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(vertical = 8.dp)
-                        .clickable { viewModel.setBusqueda(busqueda.nombre) }
+                        .clickable { viewModel.setBusqueda("${busqueda.nombre}-${busqueda.servidor}") }
                 )
             }
         }

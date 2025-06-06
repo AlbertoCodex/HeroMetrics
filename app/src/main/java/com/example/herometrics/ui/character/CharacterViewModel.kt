@@ -1,17 +1,21 @@
-package com.example.herometrics.api.armory
+package com.example.herometrics.ui.character
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.herometrics.api.armory.AuthService
+import com.example.herometrics.api.armory.CharacterStatsResponse
+import com.example.herometrics.api.armory.WowApiService
+import com.example.herometrics.data.DataFirebase
 import kotlinx.coroutines.launch
 import okhttp3.Credentials
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class CharacterViewModel : ViewModel() {
+class CharacterViewModel(private val dataFirebase: DataFirebase) : ViewModel() {
 
     var stats by mutableStateOf<CharacterStatsResponse?>(null)
         private set
@@ -21,10 +25,6 @@ class CharacterViewModel : ViewModel() {
 
     private val clientId = "0d15285a989f4e239683c9336288d6b5"
     private val clientSecret = "8uufmeKFCpvYiXDlgDIdp9GOCgCWDKjL"
-
-    init {
-        fetchCharacterStats("sanguino", "zenys")
-    }
 
     fun fetchCharacterStats(realm: String, name: String) {
         viewModelScope.launch {
