@@ -76,6 +76,9 @@ dependencies {
     // Navigation
     implementation ("androidx.navigation:navigation-compose:2.7.7")
 
+    // COIL -> Renderizar Imagenes
+    implementation("io.coil-kt:coil-compose:2.4.0")
+
     // Graficos
     implementation(libs.vico.compose)
     implementation(libs.vico.compose.m2)

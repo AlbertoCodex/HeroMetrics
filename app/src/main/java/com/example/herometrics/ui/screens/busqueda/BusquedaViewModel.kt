@@ -36,7 +36,6 @@ class BusquedaViewModel(
                     DataPlayer(
                         nombre = doc.getString("nombre") ?: "",
                         servidor = doc.getString("servidor") ?: "",
-                        region = doc.getString("region") ?: ""
                     )
                 }
                 _recientes.value = listaPlayers
