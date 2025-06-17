@@ -1,4 +1,4 @@
-package com.example.herometrics.ui.character
+package com.example.herometrics.ui.screens.character
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -28,6 +28,8 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import coil.compose.AsyncImage
+import com.example.herometrics.navigation.AppScreens
+import com.example.herometrics.navigation.SharedViewModel
 import com.patrykandpatrick.vico.compose.cartesian.CartesianChartHost
 import com.patrykandpatrick.vico.compose.cartesian.axis.rememberBottom
 import com.patrykandpatrick.vico.compose.cartesian.axis.rememberStart
@@ -41,7 +43,8 @@ import com.patrykandpatrick.vico.core.cartesian.data.columnSeries
 @Composable
 fun CharacterScreen(
     navController: NavHostController,
-    viewModel: CharacterViewModel
+    viewModel: CharacterViewModel,
+    sharedViewModel: SharedViewModel
 ) {
     val charStats = viewModel.characterViewData
     val isLoading = viewModel.isLoading
@@ -111,7 +114,8 @@ fun CharacterScreen(
                 // Botón al final
                 Button(
                     onClick = {
-                        // navController.navigate("comparar")
+                        sharedViewModel.setSelectedCharacter(viewModel.characterViewData!!)
+                        navController.navigate(AppScreens.Comparar.createRoute(charStats.spec))
                     },
                     modifier = Modifier.align(Alignment.CenterHorizontally)
                 ) {

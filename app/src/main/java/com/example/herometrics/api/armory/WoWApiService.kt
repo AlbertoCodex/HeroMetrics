@@ -18,7 +18,7 @@ interface WowApiService {
         @Path("realm") realm: String,
         @Path("characterName") characterName: String,
         @Query("namespace") namespace: String = "profile-eu",
-        @Query("locale") locale: String = "es_ES"
+        @Query("locale") locale: String = "en_GB"
     ): CharacterProfileResponse
 
     @GET("profile/wow/character/{realm}/{characterName}")

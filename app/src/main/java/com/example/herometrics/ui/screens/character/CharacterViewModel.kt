@@ -1,4 +1,4 @@
-package com.example.herometrics.ui.character
+package com.example.herometrics.ui.screens.character
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -94,7 +94,8 @@ class CharacterViewModel(private val dataFirebase: DataFirebase) : ViewModel() {
                     crit = statsResponse.melee_crit.rating_normalized,
                     haste = statsResponse.melee_haste.rating_normalized,
                     mastery = statsResponse.mastery.rating_normalized,
-                    versatility = statsResponse.versatility
+                    versatility = statsResponse.versatility,
+                    server = profileResponse.realm.slug
                 )
                 errorMessage = null
 

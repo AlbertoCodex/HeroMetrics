@@ -19,6 +19,14 @@ data class CharacterViewData(
     val crit: Double,
     val haste: Double,
     val mastery: Double,
+    val versatility: Double,
+    val server: String
+)
+
+data class CharacterStats(
+    val crit: Double,
+    val haste: Double,
+    val mastery: Double,
     val versatility: Double
 )
 

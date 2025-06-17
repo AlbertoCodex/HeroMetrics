@@ -63,7 +63,7 @@ fun BusquedaContent(
             painter = painterResource(id = R.drawable.logo),
             contentDescription = "Logo de la app",
             modifier = Modifier
-                .size(400.dp) // Puedes ajustar el tamaño a tu gusto
+                .size(300.dp) // Puedes ajustar el tamaño a tu gusto
                 .padding(bottom = 16.dp)
         )
 
