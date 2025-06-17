@@ -21,10 +21,13 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import okhttp3.Credentials
 import okhttp3.OkHttpClient
 import org.json.JSONObject
+import org.w3c.dom.CharacterData
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -38,6 +41,8 @@ class CompararViewModel : ViewModel() {
     private val secretIdArmory = "8uufmeKFCpvYiXDlgDIdp9GOCgCWDKjL"
 
     private val characterStatsList = mutableListOf<CharacterStats>()
+    private val _selectedCharacters = MutableStateFlow<List<DataPlayer>>(emptyList())
+    val selectedCharacters = _selectedCharacters.asStateFlow()
 
     var isLoading by mutableStateOf(false)
     var errorMessage by mutableStateOf<String?>(null)
@@ -107,6 +112,7 @@ class CompararViewModel : ViewModel() {
                             val region = serverObj.getString("region")
 
                             if (region.equals("EU", ignoreCase = true)) {
+                                addSelectedCharacter(DataPlayer(name.capitalize(), serverName.capitalize()))
                                 fetchCharacterStats(serverName.lowercase(), name.lowercase())
                             }
                         }
@@ -189,5 +195,9 @@ class CompararViewModel : ViewModel() {
                 versatility = avgVersatility
             )
         )
+    }
+
+    fun addSelectedCharacter(character: DataPlayer) {
+        _selectedCharacters.value = _selectedCharacters.value + character
     }
 }
