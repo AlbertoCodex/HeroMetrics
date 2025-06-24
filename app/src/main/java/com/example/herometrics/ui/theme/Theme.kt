@@ -9,28 +9,45 @@ import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 
-private val DarkColorScheme = darkColorScheme(
-    primary = Purple80,
-    secondary = PurpleGrey80,
-    tertiary = Pink80
+private val LightColorScheme = lightColorScheme(
+    primary = OrangePrimary,
+    onPrimary = OrangeOnPrimary,
+    primaryContainer = OrangePrimaryContainer,
+    onPrimaryContainer = OrangeOnPrimaryContainer,
+    secondary = OrangeSecondary,
+    onSecondary = OrangeOnSecondary,
+    secondaryContainer = OrangeSecondaryContainer,
+    onSecondaryContainer = OrangeOnSecondaryContainer,
+    background = OrangeBackground,
+    onBackground = OrangeOnBackground,
+    surface = OrangeSurface,
+    onSurface = OrangeOnSurface,
+    error = OrangeError,
+    onError = OrangeOnError,
+    errorContainer = OrangeErrorContainer,
+    onErrorContainer = OrangeOnErrorContainer
 )
 
-private val LightColorScheme = lightColorScheme(
-    primary = Purple40,
-    secondary = PurpleGrey40,
-    tertiary = Pink40
-
-    /* Other default colors to override
-    background = Color(0xFFFFFBFE),
-    surface = Color(0xFFFFFBFE),
-    onPrimary = Color.White,
-    onSecondary = Color.White,
-    onTertiary = Color.White,
-    onBackground = Color(0xFF1C1B1F),
-    onSurface = Color(0xFF1C1B1F),
-    */
+private val DarkColorScheme = darkColorScheme(
+    primary = OrangePrimary,
+    onPrimary = Color.Black,
+    primaryContainer = Color(0xFF3A2400),
+    onPrimaryContainer = OrangePrimaryContainer,
+    secondary = OrangeSecondary,
+    onSecondary = Color.Black,
+    secondaryContainer = Color(0xFF442600),
+    onSecondaryContainer = OrangeSecondaryContainer,
+    background = Color(0xFF1E1E1E),
+    onBackground = Color(0xFFF9F9F9),
+    surface = Color(0xFF1E1E1E),
+    onSurface = Color(0xFFF9F9F9),
+    error = OrangeError,
+    onError = OrangeOnError,
+    errorContainer = OrangeErrorContainer,
+    onErrorContainer = OrangeOnErrorContainer
 )
 
 @Composable
@@ -52,7 +69,7 @@ fun HeroMetricsTheme(
 
     MaterialTheme(
         colorScheme = colorScheme,
-        typography = Typography,
+        typography = AppTypography,
         content = content
     )
 }

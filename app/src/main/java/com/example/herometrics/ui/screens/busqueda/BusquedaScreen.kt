@@ -5,17 +5,16 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material.Button
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
-import androidx.compose.material.TextField
+import androidx.compose.material.Divider
+import androidx.compose.material3.Button
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
 import androidx.compose.runtime.*
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.capitalize
-import androidx.compose.ui.text.toLowerCase
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.example.herometrics.R
@@ -48,8 +47,6 @@ fun BusquedaContent(
 ) {
     val busqueda by viewModel.busqueda.observeAsState(initial = "")
     val recientes by viewModel.recientes.observeAsState(emptyList())
-    val showDialog by viewModel.showDialog.observeAsState(initial = false)
-    val errorDialog by viewModel.errorDialog.observeAsState(initial = "")
 
 
     Column(
@@ -63,7 +60,7 @@ fun BusquedaContent(
             painter = painterResource(id = R.drawable.logo),
             contentDescription = "Logo de la app",
             modifier = Modifier
-                .size(400.dp) // Puedes ajustar el tamaño a tu gusto
+                .size(300.dp) // Puedes ajustar el tamaño a tu gusto
                 .padding(bottom = 16.dp)
         )
 
@@ -98,19 +95,33 @@ fun BusquedaContent(
             }
         }
 
-        Text("Búsquedas recientes", style = MaterialTheme.typography.h6)
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(top = 24.dp) // Más separación arriba
+        ) {
+            Text(
+                text = "Búsquedas recientes",
+                style = MaterialTheme.typography.titleMedium,
+                modifier = Modifier.padding(bottom = 8.dp)
+            )
 
-        Spacer(modifier = Modifier.height(8.dp))
-
-        LazyColumn {
-            items(recientes) { busqueda ->
-                Text(
-                    text = "${busqueda.nombre}-${busqueda.servidor}",
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(vertical = 8.dp)
-                        .clickable { viewModel.setBusqueda("${busqueda.nombre.capitalize()}-${busqueda.servidor.capitalize()}") }
-                )
+            LazyColumn {
+                items(recientes) { busqueda ->
+                    Text(
+                        text = "${busqueda.nombre}-${busqueda.servidor}",
+                        style = MaterialTheme.typography.bodyLarge, // Mejor legibilidad
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .clickable {
+                                viewModel.setBusqueda(
+                                    "${busqueda.nombre.capitalize()}-${busqueda.servidor.capitalize()}"
+                                )
+                            }
+                            .padding(horizontal = 16.dp, vertical = 12.dp) // Buen espacio táctil
+                    )
+                    Divider() // Línea separadora entre elementos
+                }
             }
         }
     }
